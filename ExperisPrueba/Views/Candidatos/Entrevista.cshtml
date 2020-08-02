@@ -1,0 +1,49 @@
+﻿@model ExperisPrueba.Models.Entrevista
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <h4>Fecha y hora entrevista</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FechaEntrevista, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FechaEntrevista, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FechaEntrevista, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Horaentrevista, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Horaentrevista, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Horaentrevista, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+
+            @{ if (ViewData["TipoEntrevista"] == null)
+                {
+                    var list = new Dictionary<string, string>
+                        ();
+                    list.Add("PRESENCIAL", "PRESENCIAL");
+                    list.Add("TELEFONICA", "TELEFONICA");
+                    list.Add("REMOTA", "REMOTA");
+                    ViewData["TipoEntrevista"] = new SelectList(list, "Key", "Value");
+                }
+            }
+
+                @Html.LabelFor(model => model.TipoEntrevista, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.TipoEntrevista, (IEnumerable<SelectListItem>)ViewData["TipoEntrevista"], "Seleccione Tipo de Entrevista")
+                    @Html.ValidationMessageFor(model => model.TipoEntrevista, "", new { @class = "text-danger" })
+                </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

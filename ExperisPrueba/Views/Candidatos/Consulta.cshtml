@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ExperisPrueba.Models.Consulta>
+
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Consulta</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebSite)
+        </th>       
+        <th>
+            @Html.DisplayNameFor(model => model.FechaEntrevista)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Horaentrevista)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoEntrevista)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WebSite)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaEntrevista)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Horaentrevista)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoEntrevista)
+        </td>        
+    </tr>
+}
+
+</table>
