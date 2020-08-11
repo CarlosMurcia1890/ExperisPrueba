@@ -61,12 +61,14 @@ namespace ExperisPrueba.Controllers
                                     c.WebSite,
                                     e.FechaEntrevista,
                                     e.Horaentrevista,
-                                    e.TipoEntrevista
+                                    e.TipoEntrevista,
+                                    c.NombreContacto,
+                                    c.Edad
                                 };
 
                 foreach (var c in consdatos)
                 {
-                    consulta.Add(new Consulta { Nombre = c.Nombre, Apellido = c.Apellido, Telefono = c.Telefono, Correo = c.Correo, WebSite = c.WebSite, id = c.id, IdCandidato = c.id, FechaEntrevista = c.FechaEntrevista, Horaentrevista = c.Horaentrevista, TipoEntrevista = c.TipoEntrevista });
+                    consulta.Add(new Consulta { Nombre = c.Nombre, Apellido = c.Apellido, Telefono = c.Telefono, Correo = c.Correo, WebSite = c.WebSite, id = c.id, IdCandidato = c.id, FechaEntrevista = c.FechaEntrevista, Horaentrevista = c.Horaentrevista, TipoEntrevista = c.TipoEntrevista, NombreContacto = c.NombreContacto, Edad = c.Edad });
                 }
 
 
@@ -129,11 +131,20 @@ namespace ExperisPrueba.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,Nombre,Apellido,Correo,Telefono,WebSite")] Candidatos candidatos, [Bind(Include = "FechaEntrevista, Horaentrevista,TipoEntrevista")] Entrevista entrevista)
+        public ActionResult Create([Bind(Include = "id,Nombre,Apellido,Correo,Telefono,WebSite,NombreContacto,Edad")] Candidatos candidatos, [Bind(Include = "FechaEntrevista, Horaentrevista,TipoEntrevista")] Entrevista entrevista)
         {
+                        
 
             try
             {
+
+                if ((candidatos.Edad < 18 || candidatos.Edad > 35))
+                {
+                    ViewBag.Mensaje = "La edad permitida de registro es entre 18 y 35 años.";
+                    return View();
+                }
+
+
                 var Fechas = from f in db.Entrevistas
                              where f.FechaEntrevista == entrevista.FechaEntrevista && f.Horaentrevista == entrevista.Horaentrevista
                              select f.FechaEntrevista;

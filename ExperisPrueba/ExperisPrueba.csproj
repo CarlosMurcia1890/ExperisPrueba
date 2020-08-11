@@ -150,6 +150,10 @@
     <Compile Include="Migrations\202008020137496_Obligatorios.designer.cs">
       <DependentUpon>202008020137496_Obligatorios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008111618253_NuevosCampos.cs" />
+    <Compile Include="Migrations\202008111618253_NuevosCampos.designer.cs">
+      <DependentUpon>202008111618253_NuevosCampos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Candidatos.cs" />
@@ -232,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008020137496_Obligatorios.resx">
       <DependentUpon>202008020137496_Obligatorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008111618253_NuevosCampos.resx">
+      <DependentUpon>202008111618253_NuevosCampos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

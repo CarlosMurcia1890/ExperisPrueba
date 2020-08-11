@@ -18,6 +18,9 @@ namespace ExperisPrueba.Models
         public string Correo { get; set; }
         public string Telefono { get; set; }
         public string WebSite { get; set; }
+        [Required(ErrorMessage = "Este campo es obligatorio")]
+        public string NombreContacto { get; set; }
+        public int Edad { get; set; }
     }
 
 }

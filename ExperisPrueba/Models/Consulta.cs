@@ -17,5 +17,8 @@ namespace ExperisPrueba.Models
         public string Horaentrevista { get; set; }
         [DisplayName("Tipo Entrevista")]
         public string TipoEntrevista { get; set; }
+        [DisplayName("Nombre Contacto")]
+        public string NombreContacto { get; set; }
+        public int Edad { get; set; }
     }
 }

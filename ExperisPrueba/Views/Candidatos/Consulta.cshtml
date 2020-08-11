@@ -23,7 +23,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.WebSite)
-        </th>       
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.FechaEntrevista)
         </th>
@@ -33,36 +33,47 @@
         <th>
             @Html.DisplayNameFor(model => model.TipoEntrevista)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreContacto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Apellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Correo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WebSite)
-        </td>        
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaEntrevista)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Horaentrevista)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoEntrevista)
-        </td>        
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Apellido)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Correo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Telefono)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WebSite)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FechaEntrevista)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Horaentrevista)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TipoEntrevista)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NombreContacto)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Edad)
+    </td>
+</tr>
 }
 
 </table>
